@@ -1,0 +1,9 @@
+{
+	"name": "DS598IshanaySharma",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e07c80ba-256d-4efe-a1fe-1cd3f29d8d81",
+		"tenantId": "d57d32cc-c121-488f-b07b-dfe705680c71"
+	}
+}
