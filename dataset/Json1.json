@@ -1,0 +1,40 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpServer1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"lat": {
+				"type": "float",
+				"defaultValue": 42.3601
+			},
+			"lon": {
+				"type": "float",
+				"defaultValue": -71.0598
+			},
+			"appid": {
+				"type": "string",
+				"defaultValue": "68e4fbf7ac557510e7b3eb2718e2565a"
+			},
+			"start": {
+				"type": "string",
+				"defaultValue": "1707098777"
+			},
+			"end": {
+				"type": "string",
+				"defaultValue": "1738721177"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "data/2.5/air_pollution/history?lat=@{dataset().lat}&lon=@{dataset().lon}&start=@{dataset().start}&end=@{dataset().end}&appid=@{dataset().appid}"
+			}
+		},
+		"schema": {}
+	}
+}
