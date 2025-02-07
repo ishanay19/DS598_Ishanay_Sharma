@@ -1,0 +1,25 @@
+{
+	"name": "Json4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_for_each",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "@{dataset().filename}",
+				"folderPath": "historical_weather_for_each",
+				"container": "container-2"
+			}
+		},
+		"schema": {}
+	}
+}
