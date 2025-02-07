@@ -1,0 +1,40 @@
+{
+	"name": "Json3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpServer1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"lat": {
+				"type": "float"
+			},
+			"lon": {
+				"type": "float"
+			},
+			"dataType": {
+				"type": "string",
+				"defaultValue": "hourly"
+			},
+			"start": {
+				"type": "string"
+			},
+			"end": {
+				"type": "string"
+			},
+			"appid": {
+				"type": "string",
+				"defaultValue": "68e4fbf7ac557510e7b3eb2718e2565a"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "data/2.5/history/city?lat=@{dataset().lat}&lon=@{dataset().lon}&type=@{dataset().dataType}&start=@{dataset().start}&end=@{dataset().end}&appid=@{dataset().appid}"
+			}
+		},
+		"schema": {}
+	}
+}
