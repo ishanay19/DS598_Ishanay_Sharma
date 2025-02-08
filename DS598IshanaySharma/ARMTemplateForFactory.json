@@ -186,11 +186,11 @@
 												"lon": -71.0598,
 												"dataType": "hourly",
 												"start": {
-													"value": "@div(\n    sub(\n        ticks(addDays(utcNow(), mul(-7, item()))),\n        ticks('1970-01-01T00:00:00Z')\n    ),\n    10000000\n)",
+													"value": "@string(\n    div(\n        sub(\n            ticks(addDays(utcNow(), mul(-7, add(item(), 1)))),\n            ticks('1970-01-01T00:00:00Z')\n        ),\n        10000000\n    )\n)\n",
 													"type": "Expression"
 												},
 												"end": {
-													"value": "@div(\n    sub(\n        ticks(addDays(utcNow(), mul(-7, add(item(), -1)))),\n        ticks('1970-01-01T00:00:00Z')\n    ),\n    10000000\n)",
+													"value": "@string(\n    div(\n        sub(\n            ticks(addDays(utcNow(), mul(-7, item()))),\n            ticks('1970-01-01T00:00:00Z')\n        ),\n        10000000\n    )\n)",
 													"type": "Expression"
 												},
 												"appid": "0ed039bb8219c4fbacce2dde528526be"
@@ -201,7 +201,12 @@
 										{
 											"referenceName": "Json4",
 											"type": "DatasetReference",
-											"parameters": {}
+											"parameters": {
+												"filename": {
+													"value": "@concat('HistoricalWeather_', item(), '.json')\n",
+													"type": "Expression"
+												}
+											}
 										}
 									]
 								}
@@ -347,11 +352,20 @@
 					"referenceName": "AzureBlobStorage_for_each",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"filename": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "Json",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@concat('HistoricalWeather_', item(), '.json')\n",
+							"type": "Expression"
+						},
 						"folderPath": "historical_weather_for_each",
 						"container": "container-2"
 					}
