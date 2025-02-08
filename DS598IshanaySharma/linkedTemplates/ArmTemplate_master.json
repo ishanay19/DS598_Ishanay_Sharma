@@ -23,10 +23,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'HttpServer1'"
 		},
-		"HttpServer2_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'HttpServer2'"
-		},
 		"GitHub1_properties_typeProperties_username": {
 			"type": "string",
 			"defaultValue": "ishanay19"
@@ -41,11 +37,7 @@
 		},
 		"HttpServer2_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://api.openweathermap.org/"
-		},
-		"HttpServer2_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Ishanay"
+			"defaultValue": "https://history.openweathermap.org/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -86,9 +78,6 @@
 					"HttpServer1_password": {
 						"value": "[parameters('HttpServer1_password')]"
 					},
-					"HttpServer2_password": {
-						"value": "[parameters('HttpServer2_password')]"
-					},
 					"GitHub1_properties_typeProperties_username": {
 						"value": "[parameters('GitHub1_properties_typeProperties_username')]"
 					},
@@ -100,9 +89,6 @@
 					},
 					"HttpServer2_properties_typeProperties_url": {
 						"value": "[parameters('HttpServer2_properties_typeProperties_url')]"
-					},
-					"HttpServer2_properties_typeProperties_userName": {
-						"value": "[parameters('HttpServer2_properties_typeProperties_userName')]"
 					}
 				}
 			},
