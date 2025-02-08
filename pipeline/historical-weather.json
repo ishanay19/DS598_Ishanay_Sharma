@@ -58,11 +58,11 @@
 										"lon": -71.0598,
 										"dataType": "hourly",
 										"start": {
-											"value": "@div(\n    sub(\n        ticks(addDays(utcNow(), mul(-7, item()))),\n        ticks('1970-01-01T00:00:00Z')\n    ),\n    10000000\n)\n",
+											"value": "@div(\n    sub(\n        ticks(addDays(utcNow(), -7)),\n        ticks('1970-01-01T00:00:00Z')\n    ),\n    10000000\n)\n",
 											"type": "Expression"
 										},
 										"end": {
-											"value": "@div(\n    sub(\n        ticks(addDays(utcNow(), mul(-7, add(item(), -1)))),\n        ticks('1970-01-01T00:00:00Z')\n    ),\n    10000000\n)\n",
+											"value": "@div(\n    sub(\n        ticks(utcNow()),\n        ticks('1970-01-01T00:00:00Z')\n    ),\n    10000000\n)\n",
 											"type": "Expression"
 										},
 										"appid": "0ed039bb8219c4fbacce2dde528526be"
