@@ -7,10 +7,10 @@
 		},
 		"parameters": {
 			"lat": {
-				"type": "float"
+				"type": "string"
 			},
 			"lon": {
-				"type": "float"
+				"type": "string"
 			},
 			"dataType": {
 				"type": "string",
