@@ -189,12 +189,7 @@
 										{
 											"referenceName": "Json4",
 											"type": "DatasetReference",
-											"parameters": {
-												"filename": {
-													"value": "@concat('HistoricalWeather_', item(), '.json')\n",
-													"type": "Expression"
-												}
-											}
+											"parameters": {}
 										}
 									]
 								}
@@ -340,20 +335,11 @@
 					"referenceName": "AzureBlobStorage_for_each",
 					"type": "LinkedServiceReference"
 				},
-				"parameters": {
-					"filename": {
-						"type": "string"
-					}
-				},
 				"annotations": [],
 				"type": "Json",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": {
-							"value": "@{dataset().filename}",
-							"type": "Expression"
-						},
 						"folderPath": "historical_weather_for_each",
 						"container": "container-2"
 					}
