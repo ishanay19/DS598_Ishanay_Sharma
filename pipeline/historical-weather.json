@@ -52,13 +52,32 @@
 							"inputs": [
 								{
 									"referenceName": "Json3",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"lat": 42.3601,
+										"lon": -71.0598,
+										"dataType": "hourly",
+										"start": {
+											"value": "@div(\n    sub(\n        ticks(addDays(utcNow(), mul(-7, item()))),\n        ticks('1970-01-01T00:00:00Z')\n    ),\n    10000000\n)\n",
+											"type": "Expression"
+										},
+										"end": {
+											"value": "@div(\n    sub(\n        ticks(addDays(utcNow(), mul(-7, add(item(), -1)))),\n        ticks('1970-01-01T00:00:00Z')\n    ),\n    10000000\n)\n",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
 								{
 									"referenceName": "Json4",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"filename": {
+											"value": "@concat('HistoricalWeather_', item(), '.json')\n",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
