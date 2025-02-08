@@ -17,10 +17,10 @@
 				"defaultValue": "hourly"
 			},
 			"start": {
-				"type": "string"
+				"type": "int"
 			},
 			"end": {
-				"type": "string"
+				"type": "int"
 			},
 			"appid": {
 				"type": "string",
