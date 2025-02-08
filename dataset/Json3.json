@@ -14,7 +14,7 @@
 			},
 			"dataType": {
 				"type": "string",
-				"defaultValue": "hourly"
+				"defaultValue": "hour"
 			},
 			"start": {
 				"type": "string"
