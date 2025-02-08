@@ -235,7 +235,7 @@
 					},
 					"appid": {
 						"type": "string",
-						"defaultValue": "0ed039bb8219c4fbacce2dde528526be"
+						"defaultValue": "89dcc7c66e788907d6c77754d3ebbf87"
 					}
 				},
 				"annotations": [],
@@ -274,10 +274,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": {
-							"value": "@concat('HistoricalWeather_', item(), '.json')\n",
-							"type": "Expression"
-						},
 						"folderPath": "historical_weather_for_each",
 						"container": "container-2"
 					}
@@ -429,7 +425,7 @@
 													"value": "@string(\n    div(\n        sub(\n            ticks(addDays(utcNow(), mul(-7, item()))),\n            ticks('1970-01-01T00:00:00Z')\n        ),\n        10000000\n    )\n)",
 													"type": "Expression"
 												},
-												"appid": "0ed039bb8219c4fbacce2dde528526be"
+												"appid": "89dcc7c66e788907d6c77754d3ebbf87"
 											}
 										}
 									],
