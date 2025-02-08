@@ -17,6 +17,9 @@
 		"HttpServer1_password": {
 			"value": ""
 		},
+		"HttpServer2_password": {
+			"value": ""
+		},
 		"GitHub1_properties_typeProperties_username": {
 			"value": "ishanay19"
 		},
@@ -24,6 +27,12 @@
 			"value": "https://api.openweathermap.org/"
 		},
 		"HttpServer1_properties_typeProperties_userName": {
+			"value": "Ishanay"
+		},
+		"HttpServer2_properties_typeProperties_url": {
+			"value": "http://api.openweathermap.org/"
+		},
+		"HttpServer2_properties_typeProperties_userName": {
 			"value": "Ishanay"
 		}
 	}
