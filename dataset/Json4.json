@@ -15,10 +15,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": {
-					"value": "@concat('HistoricalWeather_', item(), '.json')\n",
-					"type": "Expression"
-				},
 				"folderPath": "historical_weather_for_each",
 				"container": "container-2"
 			}
