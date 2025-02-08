@@ -212,7 +212,7 @@
 					"location": {
 						"type": "HttpServerLocation",
 						"relativeUrl": {
-							"value": "data/2.5/history?lat=@{dataset().lat}&lon=@{dataset().lon}&type=@{dataset().dataType}&start=@{dataset().start}&end=@{dataset().end}&appid=@{dataset().appid}",
+							"value": "data/2.5/history/city?lat=@{dataset().lat}&lon=@{dataset().lon}&type=@{dataset().dataType}&start=@{dataset().start}&end=@{dataset().end}&appid=@{dataset().appid}",
 							"type": "Expression"
 						}
 					}
@@ -396,7 +396,8 @@
 												"end": {
 													"value": "@div(\n    sub(\n        ticks(addDays(utcNow(), mul(-7, add(item(), -1)))),\n        ticks('1970-01-01T00:00:00Z')\n    ),\n    10000000\n)\n",
 													"type": "Expression"
-												}
+												},
+												"appid": "68e4fbf7ac557510e7b3eb2718e2565a"
 											}
 										}
 									],
