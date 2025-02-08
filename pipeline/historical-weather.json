@@ -72,13 +72,7 @@
 							"outputs": [
 								{
 									"referenceName": "Json4",
-									"type": "DatasetReference",
-									"parameters": {
-										"filename": {
-											"value": "@concat('HistoricalWeather_', item(), '.json')\n",
-											"type": "Expression"
-										}
-									}
+									"type": "DatasetReference"
 								}
 							]
 						}
