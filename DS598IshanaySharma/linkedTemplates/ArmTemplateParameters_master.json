@@ -5,13 +5,16 @@
 		"factoryName": {
 			"value": "DS598IshanaySharma"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage_for_each_connectionString": {
+			"value": ""
+		},
 		"GitHub1_credential": {
 			"value": ""
 		},
 		"HttpServer1_password": {
-			"value": ""
-		},
-		"AzureBlobStorage1_connectionString": {
 			"value": ""
 		},
 		"GitHub1_properties_typeProperties_username": {
