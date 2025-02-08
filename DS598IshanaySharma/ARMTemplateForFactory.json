@@ -41,7 +41,7 @@
 		},
 		"HttpServer2_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "http://api.openweathermap.org/"
+			"defaultValue": "https://api.openweathermap.org/"
 		},
 		"HttpServer2_properties_typeProperties_userName": {
 			"type": "string",
