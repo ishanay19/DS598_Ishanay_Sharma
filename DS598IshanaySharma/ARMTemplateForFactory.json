@@ -184,13 +184,13 @@
 											"parameters": {
 												"lat": 42.3601,
 												"lon": -71.0598,
-												"dataType": "hourly",
+												"dataType": "hour",
 												"start": {
-													"value": "@string(\n    div(\n        sub(\n            ticks(addDays(utcNow(), mul(-7, add(item(), 1)))),\n            ticks('1970-01-01T00:00:00Z')\n        ),\n        10000000\n    )\n)\n",
+													"value": "@div(sub(ticks(addDays(utcNow(), mul(add(item(),1), -7))), ticks('1970-01-01T00:00:00Z')), 10000000)",
 													"type": "Expression"
 												},
 												"end": {
-													"value": "@string(\n    div(\n        sub(\n            ticks(addDays(utcNow(), mul(-7, item()))),\n            ticks('1970-01-01T00:00:00Z')\n        ),\n        10000000\n    )\n)",
+													"value": "@div(sub(ticks(addDays(utcNow(), mul(item(), -7))), ticks('1970-01-01T00:00:00Z')), 10000000)",
 													"type": "Expression"
 												},
 												"appid": "89dcc7c66e788907d6c77754d3ebbf87"
@@ -313,7 +313,7 @@
 					},
 					"dataType": {
 						"type": "string",
-						"defaultValue": "hourly"
+						"defaultValue": "hour"
 					},
 					"start": {
 						"type": "string"
