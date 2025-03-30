@@ -13,7 +13,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "flatten1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          coord as (lat as double, lon as double),",
@@ -23,7 +27,14 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['/data/2.5/air_pollution/historyb2107dfa9b7108944961d54cf10c5364e96e9c6ecc24c4f47aa0f5c355d5c4c6']) ~> APsource"
+				"     wildcardPaths:['/data/2.5/air_pollution/historyb2107dfa9b7108944961d54cf10c5364e96e9c6ecc24c4f47aa0f5c355d5c4c6']) ~> APsource",
+				"APsource foldDown(unroll(),",
+				"     mapColumn(",
+				"          coord,",
+				"          list",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1"
 			]
 		}
 	}

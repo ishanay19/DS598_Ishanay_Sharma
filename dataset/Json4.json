@@ -15,7 +15,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "Bronze/historical_weather",
+				"folderPath": "Bronze",
 				"container": "container-1"
 			}
 		},
