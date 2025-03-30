@@ -12,10 +12,30 @@
 					"name": "APsource"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Parquet2",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "flatten1"
+				},
+				{
+					"name": "FixTimestampAndLocation"
+				},
+				{
+					"name": "filterInvalidRows"
+				},
+				{
+					"name": "AddPollutionColumns"
+				},
+				{
+					"name": "Dropdt"
 				}
 			],
 			"scriptLines": [
@@ -28,13 +48,61 @@
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine',",
 				"     wildcardPaths:['/data/2.5/air_pollution/historyb2107dfa9b7108944961d54cf10c5364e96e9c6ecc24c4f47aa0f5c355d5c4c6']) ~> APsource",
-				"APsource foldDown(unroll(),",
+				"APsource foldDown(unroll(list, list),",
 				"     mapColumn(",
-				"          coord,",
-				"          list",
+				"          lat = coord.lat,",
+				"          lon = coord.lon,",
+				"          dt = list.dt,",
+				"          aqi = list.main.aqi,",
+				"          co = list.components.co,",
+				"          nh3 = list.components.nh3,",
+				"          no = list.components.no,",
+				"          no2 = list.components.no2,",
+				"          o3 = list.components.o3,",
+				"          pm10 = list.components.pm10,",
+				"          pm2_5 = list.components.pm2_5,",
+				"          so2 = list.components.so2",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flatten1"
+				"     skipDuplicateMapOutputs: false) ~> flatten1",
+				"flatten1 derive(corrected_timestamp = iif(length(toString(dt)) == 10, toInteger(dt), toInteger(null())),",
+				"          location = 'Boston') ~> FixTimestampAndLocation",
+				"FixTimestampAndLocation filter(!isNull(aqi) && !isNull(corrected_timestamp)",
+				") ~> filterInvalidRows",
+				"filterInvalidRows derive(date_time = toTimestamp(toLong(corrected_timestamp) * 1000),",
+				"          id = location + toString(corrected_timestamp),",
+				"          co = round(co,2),",
+				"          nh3 = round(nh3,2),",
+				"          no = round(no,2),",
+				"          no2 = round(no2,2),",
+				"          o3 = round(o3,2),",
+				"          pm10 = round(pm10,2),",
+				"          pm2_5 = round(pm2_5,2),",
+				"          so2 = round(so2,2)) ~> AddPollutionColumns",
+				"AddPollutionColumns select(mapColumn(",
+				"          lat,",
+				"          lon,",
+				"          aqi,",
+				"          co,",
+				"          nh3,",
+				"          no,",
+				"          no2,",
+				"          o3,",
+				"          pm10,",
+				"          pm2_5,",
+				"          so2,",
+				"          corrected_timestamp,",
+				"          location,",
+				"          date_time,",
+				"          id",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> Dropdt",
+				"Dropdt sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
