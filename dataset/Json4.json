@@ -15,8 +15,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "historical_weather_for_each",
-				"container": "container-2"
+				"folderPath": "Bronze",
+				"container": "container-1"
 			}
 		},
 		"schema": {}
