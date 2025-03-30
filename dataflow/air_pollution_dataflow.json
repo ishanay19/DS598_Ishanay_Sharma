@@ -1,0 +1,30 @@
+{
+	"name": "air_pollution_dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Json2",
+						"type": "DatasetReference"
+					},
+					"name": "APsource"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          coord as (lat as double, lon as double),",
+				"          list as (components as (co as double, nh3 as double, no as double, no2 as double, o3 as double, pm10 as double, pm2_5 as double, so2 as double), dt as integer, main as (aqi as short))[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine',",
+				"     wildcardPaths:['/data/2.5/air_pollution/historyb2107dfa9b7108944961d54cf10c5364e96e9c6ecc24c4f47aa0f5c355d5c4c6']) ~> APsource"
+			]
+		}
+	}
+}
