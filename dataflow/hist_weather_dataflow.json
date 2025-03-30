@@ -19,7 +19,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['/container-1/Bronze/historical_weather/*data_']) ~> HWsource"
+				"     wildcardPaths:['Bronze/historical_weather/data_*']) ~> HWsource"
 			]
 		}
 	}
