@@ -185,6 +185,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"folderPath": "Bronze/air_pollution",
 						"container": "container-1"
 					}
 				},
@@ -261,8 +262,8 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"folderPath": "historical_weather_for_each",
-						"container": "container-2"
+						"folderPath": "Bronze/historical_weather",
+						"container": "container-1"
 					}
 				},
 				"schema": {}
